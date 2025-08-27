@@ -1,0 +1,17 @@
+{
+  "css.validate": false,
+  "scss.validate": false,
+  "less.validate": false,
+  "css.customData": [".vscode/css_custom_data.json"],
+  "tailwindCSS.includeLanguages": {
+    "javascript": "javascript",
+    "html": "html"
+  },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "json.schemaDownload.enable": false,
+  "typescript.preferences.includePackageJsonAutoImports": "off",
+  "typescript.validate.enable": false,
+  "typescript.suggest.enabled": false
+}

@@ -1,0 +1,172 @@
+/* Basketball Toggle Animation - Kobe Bryant Tribute */
+.toggle-wrapper {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+}
+
+.toggle input {
+  height: 40px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 40px;
+  cursor: pointer;
+}
+
+.toggle-item {
+  width: 5em;
+  background: #fdb827;
+  height: 2.2em;
+  display: inline-block;
+  border-radius: 50px;
+  margin: 15px;
+  margin-top: 40px;
+  position: relative;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: visible;
+}
+
+.basketball-hoop .toggle-item::before {
+  content: none;
+}
+
+.ball {
+  border-radius: 50%;
+  width: 1.8em;
+  height: 1.8em;
+  position: absolute;
+  background: #FF9800;
+  border: 2px solid #000;
+  transition: 0.4s ease;
+  top: 3px;
+  left: 3px;
+  background-image: 
+    radial-gradient(circle at -3px 7px, transparent 10px, #000 10px, #000 12px, transparent 12px),
+    radial-gradient(circle at 28px 18px, transparent 10px, #000 10px, #000 12px, transparent 12px),
+    linear-gradient(110deg, transparent 16px, #000 16px, #000 18px, transparent 18px),
+    linear-gradient(18deg, transparent 16px, #000 16px, #000 18px, transparent 18px);
+}
+
+.ball__wrapper {
+  transition: 0.4s ease;
+  width: 195%;
+  height: 200%;
+  transform-origin: 50% -2%;
+}
+
+.hoop {
+  top: -35px;
+  right: -60px;
+  width: 35px;
+  background: #f44336;
+  height: 6px;
+  position: absolute;
+}
+
+.hoop::before {
+  content: '';
+  position: absolute;
+  right: -3px;
+  width: 5px;
+  height: 42px;
+  background: #cd2e22;
+  top: -28px;
+}
+
+.hoop::after {
+  content: '';
+  position: absolute;
+  width: 28px;
+  height: 25px;
+  background: 
+    repeating-linear-gradient(45deg, transparent, transparent 9px, white 9px, white 11px),
+    repeating-linear-gradient(-45deg, transparent, transparent 9px, white 9px, white 11px);
+  top: 6px;
+  border-radius: 0 0 20% 20%/40% 40% 60% 60%;
+  border: 2px solid #fff;
+  border-width: 0 2px;
+  left: 1px;
+  z-index: 20;
+}
+
+/* Animation when checked */
+input:checked + .toggle-item {
+  background: #542583;
+  transition-delay: 1.35s;
+}
+
+input:checked + .toggle-item .ball__wrapper {
+  animation: 1.5s linear ball-wrapper forwards;
+}
+
+input:checked + .toggle-item .ball {
+  animation: 1.5s linear ball forwards;
+}
+
+@keyframes ball {
+  0% { transform: none; }
+  40% { transform: rotate(-150deg); }
+  48% { transform: rotate(-150deg) translateY(65px); }
+  52% { transform: rotate(-150deg) translate(-7px, 56px); }
+  56% { transform: rotate(-150deg) translate(-18px, 64px); }
+  60% { transform: rotate(-150deg) translate(-25px, 60px); }
+  65% { transform: rotate(-150deg) translate(-32px, 64px); }
+  70% { transform: rotate(-150deg) translate(-35px, 61px); }
+  75% { transform: rotate(-150deg) translate(-42px, 64px); }
+  80% { transform: rotate(-150deg) translate(-46px, 62px); }
+  85% { transform: rotate(-150deg) translate(-49px, 64px); }
+  90% { transform: rotate(-150deg) translate(-53px, 63px); }
+  95% { transform: rotate(-150deg) translate(-56px, 63px); }
+  100% { transform: rotate(-150deg) translate(-58px, 64px); }
+}
+
+@keyframes ball-wrapper {
+  0% { transform: none; }
+  40%, 100% { transform: rotate(150deg); }
+}
+
+.name {
+  width: 80%;
+  position: absolute;
+  font: 500 12px 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+  bottom: -5px;
+  right: 0;
+  text-align: right;
+  color: #fff;
+  opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .toggle-item {
+    width: 5em;
+    height: 2.5em;
+    margin: 15px;
+  }
+  
+  .ball {
+    width: 2em;
+    height: 2em;
+  }
+  
+  .hoop {
+    top: -40px;
+    right: -70px;
+    width: 40px;
+  }
+  
+  .name {
+    font-size: 10px;
+  }
+}
