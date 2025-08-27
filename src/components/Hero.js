@@ -69,7 +69,10 @@ const Hero = () => {
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
+          onLoadedData={(e) => e.target.play()}
+          onCanPlay={(e) => e.target.play()}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
