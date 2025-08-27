@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiMail, FiPhone, FiMapPin, FiSend, FiUser, FiMessageSquare, FiGithub, FiLinkedin, FiInstagram } from 'react-icons/fi';
 import emailjs from 'emailjs-com';
-import heroVideo from '../assets/hero-bg.mp4';
+const heroVideo = '/hero-bg.mp4';
 
 const Contact = () => {
   const [ref, inView] = useInView({

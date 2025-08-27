@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiEye, FiFilter, FiCode } from 'react-icons/fi';
-import heroVideo from '../assets/hero-bg.mp4';
+const heroVideo = '/hero-bg.mp4';
 import WaterDropletToggle from './WaterDropletToggle';
 
 // Import project images

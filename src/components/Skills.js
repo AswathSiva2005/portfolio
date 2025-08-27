@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import heroVideo from '../assets/hero-bg.mp4';
+const heroVideo = '/hero-bg.mp4';
 import { 
   SiReact, 
   SiJavascript, 

@@ -2,8 +2,9 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiArrowDown, FiInstagram } from 'react-icons/fi';
-import profileImage from '../assets/profile.jpg';
-import heroVideo from '../assets/hero-bg.mp4';
+// Assets moved to public folder for deployment
+const profileImage = '/profile.jpg';
+const heroVideo = '/hero-bg.mp4';
 
 const Hero = () => {
   const containerVariants = {
