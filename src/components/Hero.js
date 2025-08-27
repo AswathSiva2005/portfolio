@@ -69,13 +69,21 @@ const Hero = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
+          poster="/hero-poster.jpg"
           onLoadedData={(e) => e.target.play()}
-          onCanPlay={(e) => e.target.play()}
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.nextElementSibling.style.display = 'block';
+          }}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+        <div 
+          className="absolute inset-0 w-full h-full object-cover bg-gradient-to-br from-blue-900 via-purple-900 to-indigo-900" 
+          style={{display: 'none'}}
+        ></div>
         {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/40 dark:bg-black/60"></div>
         

@@ -140,13 +140,20 @@ const Contact = () => {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover"
           onLoadedData={(e) => e.target.play()}
-          onCanPlay={(e) => e.target.play()}
+          onError={(e) => {
+            e.target.style.display = 'none';
+            e.target.nextElementSibling.style.display = 'block';
+          }}
         >
           <source src={heroVideo} type="video/mp4" />
         </video>
+        <div 
+          className="absolute inset-0 w-full h-full object-cover bg-gradient-to-br from-blue-900 via-indigo-900 to-purple-900" 
+          style={{display: 'none'}}
+        ></div>
         <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
       </div>
       

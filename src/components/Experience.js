@@ -254,7 +254,10 @@ const Experience = () => {
                         boxShadow: '0 30px 60px rgba(0,0,0,0.15), 0 15px 30px rgba(0,0,0,0.1)'
                       }}
                       className="certification-card h-100"
-                      onClick={() => window.open(cert.pdfPath, '_blank')}
+                      onClick={() => {
+                        console.log('Opening certificate:', cert.pdfPath);
+                        window.open(cert.pdfPath, '_blank');
+                      }}
                     >
                       <div
                         className="certification-card-white h-100"
