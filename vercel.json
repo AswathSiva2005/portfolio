@@ -1,7 +1,14 @@
 {
-  "version": 2,
-  "buildCommand": "CI=false npx react-scripts build",
-  "outputDirectory": "build",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "CI=false node ./node_modules/react-scripts/bin/react-scripts.js build",
+        "distDir": "build"
+      }
+    }
+  ],
   "routes": [
     {
       "src": "/(.*)",
