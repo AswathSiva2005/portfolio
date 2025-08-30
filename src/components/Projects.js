@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiGithub, FiExternalLink, FiEye, FiFilter, FiCode } from 'react-icons/fi';
-const heroVideo = '/hero-bg.mp4';
 import WaterDropletToggle from './WaterDropletToggle';
-
 // Import project images
 import agrochainImg from '../assets/project/agrochain.png';
 import bookMarketImg from '../assets/project/book market.png';
@@ -13,6 +11,8 @@ import portfolioImg from '../assets/project/portfolio.png';
 import spotifyCloneImg from '../assets/project/spotify-clone.png';
 import studentConnectImg from '../assets/project/student connect app.png';
 import virtualArtGalleryImg from '../assets/project/virtual art gallery.png';
+
+const heroVideo = '/hero-bg.mp4';
 
 const Projects = () => {
   const [ref, inView] = useInView({
@@ -171,16 +171,16 @@ const Projects = () => {
           className="text-center mb-5"
         >
           <motion.div variants={itemVariants}>
-            <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
+            {/* <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
               Portfolio
-            </span>
+            </span> */}
             <h2 className="display-5 fw-bold mb-4 text-white">
               Featured <span className="gradient-text">Projects</span>
             </h2>
-            <p className="lead text-white/80 mb-0" style={{ maxWidth: '600px' }}>
+            {/* <p className="lead text-white/80 mb-0" style={{ maxWidth: '600px' }}>
               Here are some of my recent projects that showcase my skills and passion for creating 
               exceptional digital experiences.
-            </p>
+            </p> */}
           </motion.div>
         </motion.div>
 

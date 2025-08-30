@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-const heroVideo = '/hero-bg.mp4';
 import { 
   SiReact, 
   SiJavascript, 
@@ -26,6 +25,8 @@ import {
   SiTableau
 } from 'react-icons/si';
 import { FaCoffee } from 'react-icons/fa';
+
+const heroVideo = '/hero-bg.mp4';
 
 const Skills = () => {
   const [ref, inView] = useInView({
@@ -173,9 +174,9 @@ const Skills = () => {
           className="text-center mb-5"
         >
           <motion.div variants={itemVariants}>
-            <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
+            {/* <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
               Skills & Expertise
-            </span>
+            </span> */}
             <h2 className="display-5 fw-bold mb-4 text-white">
               Technologies I Work With
             </h2>

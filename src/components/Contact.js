@@ -166,9 +166,9 @@ const Contact = () => {
           className="text-center mb-5"
         >
           <motion.div variants={itemVariants}>
-            <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
+            {/* <span className="badge bg-white/20 backdrop-blur-md text-white border border-white/30 mb-3">
               Get In Touch
-            </span>
+            </span> */}
             <h2 className="display-5 fw-bold mb-4 text-white">
               Let's Start a <span className="gradient-text">Conversation</span>
             </h2>

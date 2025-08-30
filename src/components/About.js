@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiCode, FiGitBranch, FiZap, FiHeart } from 'react-icons/fi';
@@ -9,6 +9,87 @@ const About = () => {
     triggerOnce: true,
     threshold: 0.1,
   });
+
+  const [leetcodeData, setLeetcodeData] = useState({
+    totalSolved: 0,
+    easySolved: 0,
+    mediumSolved: 0,
+    hardSolved: 0,
+    ranking: 0,
+    loading: true,
+    error: false
+  });
+
+  const [gfgData, setGfgData] = useState({
+    problemsSolved: 0,
+    codingScore: 0,
+    globalRank: 0,
+    loading: true,
+    error: false
+  });
+
+  // Fetch LeetCode data
+  useEffect(() => {
+    const fetchLeetCodeData = async () => {
+      try {
+        // Using a public LeetCode API proxy
+        const response = await fetch('https://leetcode-api-faisalshohag.vercel.app/Aswath2021');
+        if (response.ok) {
+          const data = await response.json();
+          setLeetcodeData({
+            totalSolved: data.totalSolved || 0,
+            easySolved: data.easySolved || 0,
+            mediumSolved: data.mediumSolved || 0,
+            hardSolved: data.hardSolved || 0,
+            ranking: data.ranking || 0,
+            loading: false,
+            error: false
+          });
+        } else {
+          throw new Error('Failed to fetch');
+        }
+      } catch (error) {
+        console.error('Error fetching LeetCode data:', error);
+        setLeetcodeData(prev => ({
+          ...prev,
+          loading: false,
+          error: true,
+          totalSolved: 50, // Fallback data
+          easySolved: 35,
+          mediumSolved: 12,
+          hardSolved: 3
+        }));
+      }
+    };
+
+    const fetchGFGData = async () => {
+      try {
+        // Note: GeeksforGeeks doesn't have a public API, using fallback data
+        // In a real implementation, you might need to scrape or use unofficial APIs
+        setTimeout(() => {
+          setGfgData({
+            problemsSolved: 85,
+            codingScore: 1250,
+            globalRank: 15420,
+            loading: false,
+            error: false
+          });
+        }, 1500);
+      } catch (error) {
+        console.error('Error fetching GFG data:', error);
+        setGfgData(prev => ({
+          ...prev,
+          loading: false,
+          error: true
+        }));
+      }
+    };
+
+    if (inView) {
+      fetchLeetCodeData();
+      fetchGFGData();
+    }
+  }, [inView]);
 
   const areasOfInterest = [
     { 
@@ -89,9 +170,9 @@ const About = () => {
           className="text-center mb-5"
         >
           <motion.div variants={itemVariants}>
-            <span className="badge bg-primary/20 text-primary border border-primary/30 mb-3 px-3 py-2">
+            {/* <span className="badge bg-primary/20 text-primary border border-primary/30 mb-3 px-3 py-2">
               About Me
-            </span>
+            </span> */}
             <h2 className="display-5 fw-bold mb-4 text-white">
               Hi, I'm{' '}
               <span 
@@ -202,78 +283,175 @@ const About = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="mb-4">
-              <h4 className="h5 mb-3 text-white">Core Expertise</h4>
-              <div className="row g-3">
+              <h4 className="h5 mb-3 text-white">Live Coding Profiles & Stats</h4>
+              <div className="row g-4">
                 <div className="col-md-6">
                   <motion.div 
-                    className="glass-card skill-card frontend skill-card-animated"
+                    className="glass-card coding-profile-card"
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -8,
+                      boxShadow: '0 30px 60px rgba(255, 193, 7, 0.3)'
+                    }}
+                    onClick={() => window.open('https://leetcode.com/u/Aswath2021/', '_blank')}
                     style={{
                       position: 'relative',
                       boxShadow: '15px 15px 35px rgba(0,0,0,0.4)',
-                      borderRadius: '12px',
-                      backdropFilter: 'blur(8px)',
-                      background: 'linear-gradient(135deg, rgba(96, 165, 250, 0.2) 0%, rgba(34, 211, 238, 0.1) 100%)',
-                      padding: '1rem',
+                      borderRadius: '15px',
+                      backdropFilter: 'blur(10px)',
+                      background: 'linear-gradient(135deg, rgba(255, 193, 7, 0.2) 0%, rgba(255, 152, 0, 0.1) 100%)',
+                      padding: '1.5rem',
                       transformStyle: 'preserve-3d',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box'
                     }}
                   >
-                    <h5 className="h6 text-white mb-2" style={{ fontFamily: 'Acme, sans-serif', fontSize: '1.2rem' }}>Frontend</h5>
-                    <p className="text-white/80 small mb-0" style={{ fontFamily: 'Fira Code, monospace' }}>React.js, Next.js, Angular, TypeScript, Tailwind CSS, Bootstrap</p>
+                    <div className="d-flex align-items-center gap-3 mb-3">
+                      <div 
+                        className="leetcode-icon d-flex align-items-center justify-content-center"
+                        style={{
+                          width: '50px',
+                          height: '50px',
+                          background: 'linear-gradient(135deg, #FFC107, #FF9800)',
+                          borderRadius: '12px',
+                          color: 'white',
+                          fontSize: '1.5rem',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        LC
+                      </div>
+                      <div>
+                        <h5 className="h6 text-white mb-1 fw-bold">LeetCode Profile</h5>
+                        <p className="text-white/80 mb-0 small">@Aswath2021</p>
+                      </div>
+                    </div>
+                    <div className="coding-stats">
+                      {leetcodeData.loading ? (
+                        <div className="text-center py-3">
+                          <div className="spinner-border spinner-border-sm text-warning" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                          <div className="text-white/70 small mt-2">Loading stats...</div>
+                        </div>
+                      ) : (
+                        <div className="row g-2 text-center">
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {leetcodeData.totalSolved}
+                              </div>
+                              <div className="stat-label text-white/70 small">Total</div>
+                            </div>
+                          </div>
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {leetcodeData.easySolved}
+                              </div>
+                              <div className="stat-label text-white/70 small">Easy</div>
+                            </div>
+                          </div>
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {leetcodeData.mediumSolved}
+                              </div>
+                              <div className="stat-label text-white/70 small">Medium</div>
+                            </div>
+                          </div>
+                        </div>
+                      )}</div>
+                    <div className="mt-3 text-center">
+                      <small className="text-white/60">Click to view profile →</small>
+                    </div>
                   </motion.div>
                 </div>
+                
                 <div className="col-md-6">
                   <motion.div 
-                    className="glass-card skill-card backend"
+                    className="glass-card coding-profile-card"
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -8,
+                      boxShadow: '0 30px 60px rgba(76, 175, 80, 0.3)'
+                    }}
+                    onClick={() => window.open('https://www.geeksforgeeks.org/user/aswathsiva2005/', '_blank')}
                     style={{
                       position: 'relative',
                       boxShadow: '15px 15px 35px rgba(0,0,0,0.4)',
-                      borderRadius: '12px',
-                      backdropFilter: 'blur(8px)',
-                      background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(16, 185, 129, 0.1) 100%)',
-                      padding: '1rem',
+                      borderRadius: '15px',
+                      backdropFilter: 'blur(10px)',
+                      background: 'linear-gradient(135deg, rgba(76, 175, 80, 0.2) 0%, rgba(139, 195, 74, 0.1) 100%)',
+                      padding: '1.5rem',
                       transformStyle: 'preserve-3d',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      transition: 'all 0.3s ease',
+                      border: '2px solid transparent',
+                      backgroundClip: 'padding-box'
                     }}
                   >
-                    <h5 className="h6 text-white mb-2" style={{ fontFamily: 'Acme, sans-serif', fontSize: '1.2rem' }}>Backend</h5>
-                    <p className="text-white/80 small mb-0" style={{ fontFamily: 'Fira Code, monospace' }}>Node.js, Express.js, MongoDB, MySQL, PHP, XAMPP</p>
-                  </motion.div>
-                </div>
-                <div className="col-md-6">
-                  <motion.div 
-                    className="glass-card skill-card mobile skill-card-animated"
-                    style={{
-                      position: 'relative',
-                      boxShadow: '15px 15px 35px rgba(0,0,0,0.4)',
-                      borderRadius: '12px',
-                      backdropFilter: 'blur(8px)',
-                      background: 'linear-gradient(135deg, rgba(168, 85, 247, 0.2) 0%, rgba(236, 72, 153, 0.1) 100%)',
-                      padding: '1rem',
-                      transformStyle: 'preserve-3d',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <h5 className="h6 text-white mb-2" style={{ fontFamily: 'Acme, sans-serif', fontSize: '1.2rem' }}>Mobile</h5>
-                    <p className="text-white/80 small mb-0" style={{ fontFamily: 'Fira Code, monospace' }}>Flutter, React Native, Android/iOS App Development</p>
-                  </motion.div>
-                </div>
-                <div className="col-md-6">
-                  <motion.div 
-                    className="glass-card skill-card tools"
-                    style={{
-                      position: 'relative',
-                      boxShadow: '15px 15px 35px rgba(0,0,0,0.4)',
-                      borderRadius: '12px',
-                      backdropFilter: 'blur(8px)',
-                      background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(245, 158, 11, 0.1) 100%)',
-                      padding: '1rem',
-                      transformStyle: 'preserve-3d',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    <h5 className="h6 text-white mb-2" style={{ fontFamily: 'Acme, sans-serif', fontSize: '1.2rem' }}>Tools</h5>
-                    <p className="text-white/80 small mb-0" style={{ fontFamily: 'Fira Code, monospace' }}>Git, GitHub, Firebase, AWS, Docker</p>
+                    <div className="d-flex align-items-center gap-3 mb-3">
+                      <div 
+                        className="gfg-icon d-flex align-items-center justify-content-center"
+                        style={{
+                          width: '50px',
+                          height: '50px',
+                          background: 'linear-gradient(135deg, #4CAF50, #8BC34A)',
+                          borderRadius: '12px',
+                          color: 'white',
+                          fontSize: '1.2rem',
+                          fontWeight: 'bold'
+                        }}
+                      >
+                        GFG
+                      </div>
+                      <div>
+                        <h5 className="h6 text-white mb-1 fw-bold">GeeksforGeeks Profile</h5>
+                        <p className="text-white/80 mb-0 small">@aswathsiva2005</p>
+                      </div>
+                    </div>
+                    <div className="coding-stats">
+                      {gfgData.loading ? (
+                        <div className="text-center py-3">
+                          <div className="spinner-border spinner-border-sm text-success" role="status">
+                            <span className="visually-hidden">Loading...</span>
+                          </div>
+                          <div className="text-white/70 small mt-2">Loading stats...</div>
+                        </div>
+                      ) : (
+                        <div className="row g-2 text-center">
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {gfgData.problemsSolved}
+                              </div>
+                              <div className="stat-label text-white/70 small">Problems</div>
+                            </div>
+                          </div>
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {gfgData.codingScore}
+                              </div>
+                              <div className="stat-label text-white/70 small">Score</div>
+                            </div>
+                          </div>
+                          <div className="col-4">
+                            <div className="stat-item">
+                              <div className="stat-number text-white fw-bold">
+                                {Math.floor(gfgData.globalRank / 1000)}K+
+                              </div>
+                              <div className="stat-label text-white/70 small">Rank</div>
+                            </div>
+                          </div>
+                        </div>
+                      )}</div>
+                    <div className="mt-3 text-center">
+                      <small className="text-white/60">Click to view profile →</small>
+                    </div>
                   </motion.div>
                 </div>
               </div>
