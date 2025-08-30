@@ -204,19 +204,23 @@ const Hero = () => {
                       '--hover-text': social.textColor
                     }}
                     onMouseEnter={(e) => {
-                      if (social.label === 'Instagram') {
-                        e.target.style.background = social.hoverColor;
-                      } else {
-                        e.target.style.backgroundColor = social.hoverColor;
+                      if (e.target) {
+                        if (social.label === 'Instagram') {
+                          e.target.style.background = social.hoverColor;
+                        } else {
+                          e.target.style.backgroundColor = social.hoverColor;
+                        }
+                        e.target.style.color = social.textColor;
+                        e.target.style.borderColor = social.hoverColor;
                       }
-                      e.target.style.color = social.textColor;
-                      e.target.style.borderColor = social.hoverColor;
                     }}
                     onMouseLeave={(e) => {
-                      e.target.style.background = '';
-                      e.target.style.backgroundColor = '';
-                      e.target.style.color = '';
-                      e.target.style.borderColor = '';
+                      if (e.target) {
+                        e.target.style.background = '';
+                        e.target.style.backgroundColor = '';
+                        e.target.style.color = '';
+                        e.target.style.borderColor = '';
+                      }
                     }}
                   >
                     <social.icon size={20} />

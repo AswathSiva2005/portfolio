@@ -110,7 +110,11 @@ const Skills = () => {
         { name: 'GitHub', icon: SiGithub, color: '#181717' },
         { name: 'Figma', icon: SiFigma, color: '#F24E1E' },
         { name: 'Postman', icon: SiPostman, color: '#FF6C37' },
-        { name: 'Render', icon: SiRender, color: '#46E3B7' },
+        { name: 'Render', icon: () => (
+          <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+            <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.5 7.5L12 12l5.5 4.5v-9zM6.5 7.5v9L12 12 6.5 7.5z"/>
+          </svg>
+        ), color: '#46E3B7' },
         { name: 'Vercel', icon: SiVercel, color: '#000000' },
         { name: 'Tableau', icon: SiTableau, color: '#E97627' }
       ]
@@ -234,21 +238,29 @@ const Skills = () => {
                           const icon = e.currentTarget.querySelector('.skill-icon');
                           const tooltip = e.currentTarget.querySelector('.skill-tooltip');
                           
-                          icon.style.color = skill.color;
-                          icon.style.filter = `drop-shadow(0 0 15px ${skill.color})`;
+                          if (icon) {
+                            icon.style.color = skill.color;
+                            icon.style.filter = `drop-shadow(0 0 15px ${skill.color})`;
+                          }
                           
-                          tooltip.style.opacity = '1';
-                          tooltip.style.transform = 'translateX(-50%) translateY(-5px)';
+                          if (tooltip) {
+                            tooltip.style.opacity = '1';
+                            tooltip.style.transform = 'translateX(-50%) translateY(-5px)';
+                          }
                         }}
                         onMouseLeave={(e) => {
                           const icon = e.currentTarget.querySelector('.skill-icon');
                           const tooltip = e.currentTarget.querySelector('.skill-tooltip');
                           
-                          icon.style.color = '';
-                          icon.style.filter = '';
+                          if (icon) {
+                            icon.style.color = '';
+                            icon.style.filter = '';
+                          }
                           
-                          tooltip.style.opacity = '0';
-                          tooltip.style.transform = 'translateX(-50%) translateY(0)';
+                          if (tooltip) {
+                            tooltip.style.opacity = '0';
+                            tooltip.style.transform = 'translateX(-50%) translateY(0)';
+                          }
                         }}
                       >
                         <skill.icon 
