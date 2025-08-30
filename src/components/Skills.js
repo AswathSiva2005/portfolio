@@ -20,7 +20,6 @@ import {
   SiGithub,
   SiFigma,
   SiPostman,
-  SiRender,
   SiVercel,
   SiTableau
 } from 'react-icons/si';

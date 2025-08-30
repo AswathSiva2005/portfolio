@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { FiGithub, FiExternalLink, FiEye, FiFilter, FiCode } from 'react-icons/fi';
+import { FiEye, FiCode } from 'react-icons/fi';
 import WaterDropletToggle from './WaterDropletToggle';
-// Import project images
 import agrochainImg from '../assets/project/agrochain.png';
 import bookMarketImg from '../assets/project/book market.png';
 import kecPortalImg from '../assets/project/kec portal.png';
