@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FiFigma, FiExternalLink } from 'react-icons/fi';
 import heroVideo from '../assets/hero-bg.mp4';
+import shoeDesignImg from '../assets/shoe-design-figma.png';
 
 const Gallery = () => {
   const [ref, inView] = useInView({
@@ -16,7 +17,7 @@ const Gallery = () => {
       id: 1,
       title: "Shoe Store Design",
       description: "Modern e-commerce shoe store interface with clean design",
-      thumbnail: "/shoe design - figma.png",
+      thumbnail: shoeDesignImg,
       figmaUrl: "https://www.figma.com/design/F1BbNFk9ixgHSJW7MxNJRF/shoe--1st-design-?node-id=0-1&t=AaIl6aZZYTR0Upwy-1",
       category: "E-commerce"
     }
