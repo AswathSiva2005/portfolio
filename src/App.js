@@ -12,6 +12,7 @@ import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Projects from './components/Projects';
+import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LoadingScreen from './components/LoadingScreen';
@@ -80,6 +81,7 @@ function App() {
             <Skills />
             <Experience />
             <Projects />
+            <Gallery />
             <Contact />
           </main>
           <Footer />

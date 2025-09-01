@@ -74,8 +74,12 @@ const Hero = () => {
           poster="/hero-poster.jpg"
           onLoadedData={(e) => e.target.play()}
           onError={(e) => {
-            e.target.style.display = 'none';
-            e.target.nextElementSibling.style.display = 'block';
+            if (e.target) {
+              e.target.style.display = 'none';
+              if (e.target.nextElementSibling) {
+                e.target.nextElementSibling.style.display = 'block';
+              }
+            }
           }}
         >
           <source src={heroVideo} type="video/mp4" />
