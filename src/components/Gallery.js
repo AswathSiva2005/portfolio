@@ -89,7 +89,7 @@ const Gallery = () => {
             className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 dark:bg-white/5 backdrop-blur-sm rounded-full border border-white/20 mb-6"
           >
             <FiFigma className="text-purple-400" />
-            <span className="text-sm font-medium text-white">Design Gallery</span>
+            {/* <span className="text-sm font-medium text-white">Design Gallery</span> */}
           </motion.div>
 
           <motion.h2

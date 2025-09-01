@@ -225,8 +225,8 @@ const About = () => {
                     <span className="display-4 text-white fw-bold">AS</span>
                   </div>
                 </div>
-                <h3 className="h4 text-white mb-2">Full-Stack Developer</h3>
-                <p className="text-white/70 mb-0">MERN Stack • Flutter • Cloud</p>
+                <h3 className="h4 text-white mb-2">Frontend Developer</h3>
+                <p className="text-white/70 mb-0">MERN Stack • Flutter</p>
               </div>
               
               <div className="row g-3 text-start">
@@ -277,7 +277,7 @@ const About = () => {
                 }}
               >
                 <p className="text-white/90 mb-0 lead">
-                  I'm a passionate full-stack developer currently pursuing my B.Tech in IT. I love exploring and working with modern technologies to build impactful digital solutions. My focus is on crafting clean, user-friendly, and scalable applications that bridge the gap between ideas and execution.
+                  I'm a passionate Frontend developer currently pursuing my B.Tech in IT. I love exploring and working with modern technologies to build impactful digital solutions. My focus is on crafting clean, user-friendly, and scalable applications that bridge the gap between ideas and execution.
                 </p>
               </motion.div>
             </motion.div>
