@@ -16,7 +16,7 @@ const Gallery = () => {
       id: 1,
       title: "Shoe Store Design",
       description: "Modern e-commerce shoe store interface with clean design",
-      thumbnail: "./shoe design - figma.png",
+      thumbnail: "/shoe design - figma.png",
       figmaUrl: "https://www.figma.com/design/F1BbNFk9ixgHSJW7MxNJRF/shoe--1st-design-?node-id=0-1&t=AaIl6aZZYTR0Upwy-1",
       category: "E-commerce"
     }
@@ -119,11 +119,11 @@ const Gallery = () => {
             >
               <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:border-purple-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/20">
                 {/* Design Thumbnail */}
-                <div className="relative h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-auto scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent">
+                <div className="relative h-64 bg-gradient-to-br from-purple-500/20 to-pink-500/20 overflow-auto scrollbar-thin scrollbar-thumb-purple-500/50 scrollbar-track-transparent hover:scrollbar-thumb-purple-400/70">
                   <img
                     src={design.thumbnail}
                     alt={design.title}
-                    className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105 rounded-lg shadow-lg cursor-pointer"
+                    className="w-full min-h-full object-cover transition-transform duration-500 group-hover:scale-102 cursor-pointer"
                     onError={(e) => {
                       console.log('Image failed to load:', design.thumbnail);
                       if (e.target) {
