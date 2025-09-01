@@ -204,6 +204,7 @@ const Gallery = () => {
             Let's Create Together
           </motion.button>
         </motion.div>
+        <hr/>
       </div>
     </section>
   );
