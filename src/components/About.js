@@ -245,7 +245,7 @@ const About = () => {
                 <div className="col-6">
                   <div className="d-flex align-items-center gap-2">
                     <div className="w-2 h-2 bg-primary rounded-circle" style={{width: '8px', height: '8px'}}></div>
-                    <small className="text-white/80">Education: B.Tech IT (2nd Year, KEC)</small>
+                    <small className="text-white/80">Education: B.Tech IT (3rd Year, KEC)</small>
                   </div>
                 </div>
                 <div className="col-6">

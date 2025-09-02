@@ -197,13 +197,13 @@ const Gallery = () => {
           <p className="text-gray-400 mb-6">
             Interested in collaborating on a design project?
           </p>
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/20 hover:border-purple-400/50 text-white px-8 py-3 rounded-full font-medium transition-all duration-300"
           >
             Let's Create Together
-          </motion.button>
+          </motion.button> */}
         </motion.div>
         <hr/>
       </div>
