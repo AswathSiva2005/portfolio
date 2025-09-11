@@ -194,9 +194,31 @@ const Gallery = () => {
           variants={itemVariants}
           className="text-center mt-16"
         >
-          <p className="text-gray-400 mb-6">
+
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-700 rounded-lg p-5"
+                    >
+                      <h3 className="h4 fw-bold mb-3">Have a Project in Mind?</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-4">
+                        I'm always excited to work on new and challenging projects. Let's discuss your ideas!
+                      </p>
+                      <motion.a
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        href="#contact"
+                        className="btn-primary-custom"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          document.querySelector('#contact').scrollIntoView({ behavior: 'smooth' });
+                        }}
+                      >
+                        Let's Collaborate
+                      </motion.a>
+                    </motion.div>
+          {/* <p className="text-gray-400 mb-6">
             Interested in collaborating on a design project?
-          </p>
+          </p> */}
           {/* <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}

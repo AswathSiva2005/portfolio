@@ -284,7 +284,7 @@ const Projects = () => {
           variants={itemVariants}
           className="text-center mt-5"
         >
-          <motion.div
+          {/* <motion.div
             whileHover={{ scale: 1.02 }}
             className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-dark-800 dark:to-dark-700 rounded-lg p-5"
           >
@@ -304,7 +304,7 @@ const Projects = () => {
             >
               Let's Collaborate
             </motion.a>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </div>
     </section>
