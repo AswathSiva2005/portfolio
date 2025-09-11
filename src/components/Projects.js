@@ -306,6 +306,7 @@ const Projects = () => {
             </motion.a>
           </motion.div> */}
         </motion.div>
+        <hr/>
       </div>
     </section>
   );
